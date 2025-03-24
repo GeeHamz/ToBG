@@ -132,7 +132,7 @@ def plot_results(env, rewards, points: list | None = None,
 
     # Create subplots (4 vertically aligned)
     if not plt.get_fignums():
-        fig, axs = plt.subplots(4, 1, sharex=True, figsize=(8, 6))
+        fig, axs = plt.subplots(4, 1, sharex=True, figsize=(10, 8))
     else:
         fig = plt.gcf()
         axs = fig.subplots(nrows=4, ncols=1, sharex=True)
