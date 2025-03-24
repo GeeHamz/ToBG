@@ -156,7 +156,7 @@ def plot_results(env, rewards, points: list | None = None,
 
     # Plot ambient temperature and solar irradiation on a twin axis
     axs[3].plot(x_time, df['weaSta_reaWeaTDryBul_y'] - 273.15, color='royalblue', linestyle='-', linewidth=1, label='_nolegend_')
-    axs[3].set_ylabel("Ambient\ntemperature\n($^\circ$C)")
+    axs[3].set_ylabel("Ambient\ntemperature\n($^\\circ$C)")
     axs[3].set_yticks(np.arange(-5, 16, 5))
     axt = axs[3].twinx()
     axt.plot(x_time, df['weaSta_reaWeaHDirNor_y'], color='gold', linestyle='-', linewidth=1, label='$\\dot{Q}_rad$')
