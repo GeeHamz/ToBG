@@ -140,7 +140,7 @@ def plot_results(env, rewards, points: list | None = None,
     x_time = df.index.to_pydatetime()
 
     # Plot operative temperature and comfort setpoint temperatures
-    axs[0].plot(x_time, df['reaTZon_y'] - 273.15, color='darkorange', linestyle='-', linewidth=1, label='_nolegend_')
+    axs[0].plot(x_time, df['reaTZon_y'] - 273.15, color='dodgerblue', linestyle='-', linewidth=1, label='_nolegend_')
     axs[0].plot(x_time, df['reaTSetHea_y'] - 273.15, color='gray', linewidth=1, label='Comfort setp.')
     axs[0].plot(x_time, df['reaTSetCoo_y'] - 273.15, color='gray', linewidth=1, label='_nolegend_')
     axs[0].set_yticks(np.arange(15, 31, 5))
