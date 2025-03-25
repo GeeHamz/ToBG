@@ -12,7 +12,7 @@ from stable_baselines3.common.vec_env.vec_monitor import VecMonitor
 from stable_baselines3.common.logger import configure
 from boptestGymEnv import BoptestGymEnv, NormalizedObservationWrapper, DiscretizedActionWrapper
 
-url = 'http://127.0.0.1'
+url = 'https://api.boptest.net'
 
 def make_env(seed):
     ''' Function that returns a method to instantiate a BoptestGymEnv environment
