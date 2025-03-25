@@ -1,7 +1,3 @@
-"""
-Common functionality to test and plot an agent
-"""
-
 import os
 import json
 import requests
@@ -130,12 +126,12 @@ def plot_results(env, rewards, points: list | None = None,
     res_time_days = np.array(df["time"]) / 3600.0 / 24.0
     rewards_reindexed = interp_func(res_time_days)
 
-    # Create subplots (4 vertically aligned)
+    # Create subplots (5 vertically aligned to include KPI plot)
     if not plt.get_fignums():
-        fig, axs = plt.subplots(4, 1, sharex=True, figsize=(10, 8))
+        fig, axs = plt.subplots(5, 1, sharex=True, figsize=(10, 10))
     else:
         fig = plt.gcf()
-        axs = fig.subplots(nrows=4, ncols=1, sharex=True)
+        axs = fig.subplots(nrows=5, ncols=1, sharex=True)
 
     x_time = df.index.to_pydatetime()
 
@@ -170,6 +166,16 @@ def plot_results(env, rewards, points: list | None = None,
     axs[3].legend(fancybox=True, ncol=6, bbox_to_anchor=(1.06, -0.3))
 
     axs[3].xaxis.set_major_formatter(mdates.DateFormatter('%b %d'))
+
+    # Extra plot for KPI: thermal discomfort "tdis_tot" and "cost_tot"
+    kpi_url = '{0}/kpi/{1}'.format(env.url, env.testid)
+    kpi_response = requests.get(kpi_url)
+    kpi_data = kpi_response.json()['payload']
+    kpi_keys = ['tdis_tot', 'cost_tot']
+    kpi_values = [kpi_data.get(key, np.nan) for key in kpi_keys]
+    axs[4].bar(kpi_keys, kpi_values)
+    axs[4].set_ylabel("KPI")
+    axs[4].set_title("Thermal Discomfort and Cost")
 
     plt.tight_layout()
 
@@ -228,5 +234,3 @@ def create_datetime_index(df: pd.DataFrame) -> pd.DataFrame:
     df["datetime"] = df["time"].apply(lambda t: base_timestamp + pd.Timedelta(seconds=t))
     df.set_index("datetime", inplace=True)
     return df
-
-
