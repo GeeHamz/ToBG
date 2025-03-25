@@ -36,7 +36,7 @@ from examples.test_and_plot import test_agent
 from testing import utilities
 
 # Global variables
-URL: str = 'http://127.0.0.1'
+URL: str = 'https://api.boptest.net
 SEED: int = 123456
 random.seed(SEED)
 
