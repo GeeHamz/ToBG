@@ -10,7 +10,7 @@ from boptestGymEnv import BoptestGymEnv, NormalizedActionWrapper
 from examples.test_and_plot import test_agent
 import random
 
-url = 'http://127.0.0.1'
+url = 'https://api.boptest.net'
 
 # Seed for random starting times of episodes
 random.seed(123456)
