@@ -20,7 +20,7 @@ from stable_baselines3.common.env_checker import check_env
 from stable_baselines3.common.vec_env import SubprocVecEnv
 from stable_baselines3 import A2C, DQN
 
-url = 'http://127.0.0.1'
+url = 'https://api.boptest.net'
 seed = 123456
 
 class BoptestGymEnvTest(unittest.TestCase, utilities.partialChecks):
