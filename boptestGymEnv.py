@@ -36,7 +36,7 @@ class BoptestGymEnv(gym.Env):
     metadata = {'render.modes': ['console']}
 
     def __init__(self, 
-                 url                = 'http://127.0.0.1',
+                 url                = 'https://api.boptest.net',
                  testcase           = 'bestest_hydronic_heat_pump',
                  actions            = ['oveHeaPumY_u'],
                  observations       = {'reaTZon_y':(280.,310.)}, 
